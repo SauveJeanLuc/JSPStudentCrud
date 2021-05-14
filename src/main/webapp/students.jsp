@@ -35,7 +35,7 @@
                     &nbsp;&nbsp;&nbsp;&nbsp;
                     <a href="/JspStudentCrud_war_exploded/delete?id=<c:out value='${student.id}' />">Delete</a>
 
-                    <a href="/JspStudentCrud_war_exploded/delete?id=<c:out value='${student.id}' />">View</a>
+                    <a href="/JspStudentCrud_war_exploded/view?id=<c:out value='${student.id}' />">View</a>
                 </td>
             </tr>
         </c:forEach>
