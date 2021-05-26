@@ -1,15 +1,18 @@
 package com.example.JspStudentCrud.models;
 
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table(name = "student_tbl")
 public class Student {
+        @Id
+        @GeneratedValue(strategy = GenerationType.IDENTITY)
         private Long id;
         private String firstName;
         private String lastName;
         private String gender;
+
+
 
         public Long getId() {
             return id;
