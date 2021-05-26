@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.example.JspStudentCrud.DB.StudentDao;
+import com.example.JspStudentCrud.DB.StudentDaoHbnt;
 import com.example.JspStudentCrud.models.Student;
 /**
  * Servlet implementation class Students
@@ -18,11 +19,14 @@ import com.example.JspStudentCrud.models.Student;
 public class Students extends HttpServlet {
     private static final long serialVersionUID = 1L;
     private StudentDao studentDao;
+    private StudentDaoHbnt studentDaoHbnt;
+
     public void init() {
         String jdbcURL = getServletContext().getInitParameter("jdbcURL");
         String jdbcUsername = getServletContext().getInitParameter("jdbcUsername");
         String jdbcPassword = getServletContext().getInitParameter("jdbcPassword");
         studentDao = new StudentDao(jdbcURL, jdbcUsername, jdbcPassword);
+        studentDaoHbnt = new StudentDaoHbnt();
     }
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -87,7 +91,8 @@ public class Students extends HttpServlet {
         String lastName = request.getParameter("lastName");
         String gender = request.getParameter("gender");
         Student newStudent = new Student(firstName, lastName, gender);
-        studentDao.insertStudent(newStudent);
+//        studentDao.insertStudent(newStudent);
+        studentDaoHbnt.saveStudent(newStudent);
         response.sendRedirect("list");
     }
     private void updateStudent(HttpServletRequest request, HttpServletResponse response)
