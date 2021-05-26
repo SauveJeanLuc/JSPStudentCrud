@@ -1,5 +1,10 @@
 package com.example.JspStudentCrud.models;
 
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "student_tbl")
 public class Student {
         private Long id;
         private String firstName;
