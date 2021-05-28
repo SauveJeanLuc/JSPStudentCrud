@@ -55,8 +55,8 @@ public class StudentDao {
             ResultSet resultSet = statement.executeQuery(sql);
             while (resultSet.next()) {
                 Long id = resultSet.getLong("id");
-                String firstName = resultSet.getString("first_name");
-                String lastName = resultSet.getString("last_name");
+                String firstName = resultSet.getString("firstName");
+                String lastName = resultSet.getString("lastName");
                 String gender = resultSet.getString("gender");
                 Student Student = new Student(id, firstName, lastName, gender);
                 listStudent.add(Student);
@@ -99,8 +99,8 @@ public class StudentDao {
             statement.setInt(1, id);
             ResultSet resultSet = statement.executeQuery();
             if (resultSet.next()) {
-                String firstName = resultSet.getString("first_name");
-                String lastName = resultSet.getString("last_name");
+                String firstName = resultSet.getString("firstName");
+                String lastName = resultSet.getString("lastName");
                 String gender = resultSet.getString("gender");
                 student = new Student(stdId, firstName, lastName, gender);
             }
