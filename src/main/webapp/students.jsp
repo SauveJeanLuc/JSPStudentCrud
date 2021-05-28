@@ -48,9 +48,9 @@
 <center>
     <h1>Students Management</h1>
     <h2>
-        <a href="/students_record/new">Add New Student</a>
+        <a href="/JspStudentCrud_war_exploded/new">Add New Student</a>
         &nbsp;&nbsp;&nbsp;
-        <a href="/students_record/list">List All Students</a>
+        <a href="/JspStudentCrud_war_exploded/list">List All Students</a>
     </h2>
 </center>
 <div align="center">

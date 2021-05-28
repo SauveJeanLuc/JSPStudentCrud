@@ -102,7 +102,7 @@ public class Students extends HttpServlet {
         String author = request.getParameter("lastName");
         String gender = request.getParameter("gender");
         Student book = new Student(Long.valueOf(id), title, author, gender);
-        studentDao.updateStudent(book);
+        studentDaoHbnt.updateStudent(book);
         response.sendRedirect("list");
     }
     private void deleteStudent(HttpServletRequest request, HttpServletResponse response)
