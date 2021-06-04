@@ -1,7 +1,9 @@
 package com.example.JspStudentCrud.Controllers;
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -11,6 +13,8 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.example.JspStudentCrud.DB.StudentDao;
 import com.example.JspStudentCrud.DB.StudentDaoHbnt;
+import com.example.JspStudentCrud.enums.BedType;
+import com.example.JspStudentCrud.models.Bed;
 import com.example.JspStudentCrud.models.Student;
 /**
  * Servlet implementation class Students
@@ -91,6 +95,12 @@ public class Students extends HttpServlet {
         String lastName = request.getParameter("lastName");
         String gender = request.getParameter("gender");
         Student newStudent = new Student(firstName, lastName, gender);
+        Bed newBed = new Bed("001", BedType.BUNK);
+        Long bedId = studentDaoHbnt.saveBed(newBed);
+        newBed.setId(bedId);
+        Set<Bed> beds = new HashSet<Bed>();
+        beds.add(newBed);
+        newStudent.setBeds(beds);
         studentDaoHbnt.saveStudent(newStudent);
         response.sendRedirect("list");
     }

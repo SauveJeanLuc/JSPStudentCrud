@@ -25,6 +25,11 @@ public class Bed {
     public Bed() {
     }
 
+    public Bed(String number, BedType type) {
+        this.number = number;
+        this.type = type;
+    }
+
     public Long getId() {
         return id;
     }

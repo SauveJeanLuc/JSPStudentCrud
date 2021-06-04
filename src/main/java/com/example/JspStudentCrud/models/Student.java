@@ -54,7 +54,15 @@ public class Student {
             this.gender = gender;
         }
 
-        public Student() {}
+    public Set<Bed> getBeds() {
+        return beds;
+    }
+
+    public void setBeds(Set<Bed> beds) {
+        this.beds = beds;
+    }
+
+    public Student() {}
 
         public Student(String firstName, String lastName , String gender) {
             this.firstName = firstName;

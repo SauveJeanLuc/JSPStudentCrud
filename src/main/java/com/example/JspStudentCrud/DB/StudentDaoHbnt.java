@@ -1,6 +1,8 @@
 package com.example.JspStudentCrud.DB;
 
 import java.util.List;
+
+import com.example.JspStudentCrud.models.Bed;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import com.example.JspStudentCrud.models.Student;
@@ -28,6 +30,30 @@ public class StudentDaoHbnt {
             }
             e.printStackTrace();
         }
+    }
+
+    /**
+     * Save Bed
+     *
+     * @param bed
+     */
+    public Long saveBed(Bed bed) {
+        Transaction transaction = null;
+        try (Session session = HibernateUtil.getSessionFactory().openSession()) {
+            // start a transaction
+            transaction = session.beginTransaction();
+            // save the student object
+            Long bedId = (Long) session.save(bed);
+            transaction.commit();
+            return bedId;
+        } catch (Exception e) {
+            e.printStackTrace();
+            if (transaction != null) {
+                transaction.rollback();
+            }
+            e.printStackTrace();
+        }
+        return null;
     }
     /**
      * Update Student
